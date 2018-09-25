@@ -1,6 +1,4 @@
-const knex = require('../database-connection') // TODO: Adjust path as needed!
-
-// RESTful Knex Router Template:
+const knex = require('../database-connection') 
 const router = module.exports = require('express').Router();
 
 router.get('/', getAll)
@@ -9,30 +7,9 @@ router.post('/', create)
 router.put('/:id', update)
 router.delete('/:id', remove)
 
-// TODO: Don't forget data validation/restrictions:
-// - use regex, mongoose, Joi, bookshelf, *schema lib, etc. many options: choose one
-
-// OPTIONAL/TODO: Move `getQueryOptions` into some shared js file
-function getQueryOptions(query) {
-    let {
-        offset,
-        limit
-    } = query
-    offset = parseInt(offset, null)
-    limit = parseInt(limit, null)
-    offset = offset > 2000 ? 2000 : offset
-    limit = limit > 50 ? 50 : limit
-    return {
-        offset,
-        limit
-    }
-}
 
 function getAll(req, res, next) {
-    const {
-        limit,
-        offset
-    } = getQueryOptions(req.query)
+    
     knex('users')
         .select('*')
         .limit(limit)
