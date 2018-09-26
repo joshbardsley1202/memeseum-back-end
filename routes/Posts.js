@@ -68,8 +68,12 @@ function remove(req, res, next) {
             id: req.params.id
         })
         .delete()
-        .then(count => count >= 1 ?
-            res.status(204).json() :
+
+        .then(count => 
+            count
+            ?
+            res.status(204).json() 
+            :
             res.status(404).json({
                 message: 'Nothing deleted!'
             }))

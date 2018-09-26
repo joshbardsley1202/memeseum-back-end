@@ -12,8 +12,6 @@ function getAll(req, res, next) {
     
     knex('users')
         .select('*')
-        .limit(limit)
-        .offset(offset)
         .then(users => res.status(200).send({
             data: users
         }))
