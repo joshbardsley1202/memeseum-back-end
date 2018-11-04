@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: "postgres://localhost/capstone-back"
+    connection: "postgres://localhost/memeseum"
   },
 
   production: {
