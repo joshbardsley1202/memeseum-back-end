@@ -1,15 +1,17 @@
-const express = require("express")
-const bodyParser = require("body-parser")
-const morgan = require("morgan")
-const cors = require("cors")
-const app = express()
+const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const cors = require("cors");
+const app = express();
 
+const userinfo = require("./routes/userinfo.js");
+const memes = require("./routes/memes.js");
 
 app.use(morgan("dev"));
-app.use(bodyParser.json())
-app.use(cors())
-app.use("/users", require("./routes/Users"))
-app.use("/posts",require("./routes/Posts"))
+app.use(bodyParser.json());
+app.use(cors());
+app.use("/userinfo", userinfo);
+app.use("/memes", memes);
 
 app.use((req, res, next) => {
     const err = new Error("Not Found");

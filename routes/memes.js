@@ -5,7 +5,7 @@ const cors = require('cors')
 //Dependency Injections
 const router = express.Router().use(cors())
 
-const queries = require('../queries/query_userposts.js');
+const queries = require('../queries/query_memes.js');
 
 //Routers
 
