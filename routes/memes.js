@@ -12,9 +12,9 @@ const queries = require('../queries/query_memes.js');
 //Get all userposts
 router.get("/", (request, response, next) => {
     queries.list()
-        .then(userposts => {
+        .then(memes => {
             response.json({
-                userposts
+                memes
             });
         })
         .catch(next);

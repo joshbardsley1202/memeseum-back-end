@@ -1,9 +1,11 @@
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable("users",(table) => {
+    return knex.schema.createTable("users", (table) => {
         table.increments()
-        table.text("first_name")
-        table.text("last_name")
-        table.text("username")
+        table.text("firstName")
+        table.text("lastName")
+        table.text("displayName")
+        table.text("bio")
+        table.text("profilePicture")
         table.boolean("saved_posts")
     })
   };
