@@ -6,7 +6,7 @@ module.exports = {
             .select()
     },
     read(postOwner) {
-        //Get post by ID
+        //Get post by postOwner
         return database('memes')
             .where('postOwner', postOwner)
             .then(records => records)
